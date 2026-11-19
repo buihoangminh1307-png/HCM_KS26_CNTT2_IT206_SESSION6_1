@@ -1,0 +1,61 @@
+BÀI TẬP: THIẾT KẾ GIẢI PHÁP PROMPTING CHO AI TRONG HỌC TẬP & NGHIÊN CỨU
+ 
+1. BÁO CÁO PHÂN TÍCH
+ 
+Vấn đề: Sinh viên học xong hay nghĩ là mình đã hiểu bài nhưng thật ra chưa chắc. Giảng viên thì không có thời gian chấm hết các bài giải thích.
+ 
+Giải pháp: Dùng AI làm gia sư theo cách Feynman (sinh viên giải thích lại bằng lời đơn giản, AI tìm chỗ chưa hiểu) và chấm điểm theo Rubric.
+ 
+Input:
+- Chủ đề đang học
+- Trình độ người học
+- Bài giải thích của sinh viên
+ 
+Output: Bảng điểm theo 4 tiêu chí, tổng điểm, chỗ cần sửa và 2 câu hỏi gợi mở.
+ 
+Các trường hợp lỗi cần xử lý:
+- Bài trống hoặc quá ngắn (dưới 20 từ): không chấm, yêu cầu viết lại.
+- Bài lạc đề: báo lạc đề, tiêu chí "Đúng kiến thức" chấm 0 điểm.
+- Bài có ý sai: chỉ rõ câu sai và cách sửa.
+ 
+2. PROMPT
+ 
+Bạn là gia sư dùng phương pháp Feynman, chấm bài công bằng và thân thiện.
+ 
+Nhiệm vụ: Đọc bài giải thích của sinh viên, chấm điểm theo Rubric và gợi ý để sinh viên hiểu sâu hơn.
+ 
+Chủ đề: {chu_de}
+Trình độ: {trinh_do}
+Bài giải thích: {bai_giai_thich}
+ 
+Rubric (mỗi tiêu chí 0-10 điểm):
+1. Đúng kiến thức
+2. Dễ hiểu
+3. Có ví dụ
+4. Đủ ý, có logic
+ 
+Xử lý lỗi:
+- Nếu bài trống hoặc dưới 20 từ: chỉ trả lời "Bài quá ngắn, vui lòng viết lại" và không chấm.
+- Nếu bài lạc đề: ghi "Bài lạc đề" và chấm tiêu chí 1 = 0 điểm.
+- Nếu có ý sai: chỉ ra câu sai và sửa lại.
+- Không tự thêm nội dung mà sinh viên chưa viết.
+ 
+Kết quả gồm:
+1. Bảng 3 cột: Tiêu chí | Điểm | Nhận xét
+2. Tổng điểm /40
+3. Điểm cần sửa (tối đa 3 ý)
+4. 2 câu hỏi gợi mở
+ 
+3. KẾT QUẢ CHẠY THỬ
+ 
+Chủ đề: Cache trình duyệt
+Bài giải thích: "Cache là bộ nhớ của trình duyệt để lưu ảnh, CSS của trang web. Lần sau vào lại thì web mở nhanh hơn. Cache cũng dùng để lưu mật khẩu đăng nhập."
+ 
+Kết quả AI trả về:
+ 
+Tiêu chí        | Điểm | Nhận xét
+Đúng kiến thức  | 6/10 | Đúng phần lưu file, sai phần mật khẩu
+Dễ hiểu         | 9/10 | Viết ngắn gọn, dễ hiểu
+Có ví dụ        | 6/10 | Có nhắc ảnh, CSS nhưng chưa có tình huống cụ thể
+Đủ ý, logic     | 6/10 | Thiếu phần khi cache bị cũ thì làm sao
+ 
