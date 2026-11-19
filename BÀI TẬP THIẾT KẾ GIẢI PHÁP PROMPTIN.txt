@@ -58,4 +58,9 @@ Tiêu chí        | Điểm | Nhận xét
 Dễ hiểu         | 9/10 | Viết ngắn gọn, dễ hiểu
 Có ví dụ        | 6/10 | Có nhắc ảnh, CSS nhưng chưa có tình huống cụ thể
 Đủ ý, logic     | 6/10 | Thiếu phần khi cache bị cũ thì làm sao
- 
+ Tổng điểm: 27/40
+Điểm cần sửa:
+- Cache không lưu mật khẩu, việc nhớ đăng nhập là của Cookie.
+- Nên thêm ví dụ, như web đổi giao diện mà máy vẫn hiện bản cũ.
+Ajouter une suggestion à la ligne
+- Nên nói cách xử lý là Hard Reload.
